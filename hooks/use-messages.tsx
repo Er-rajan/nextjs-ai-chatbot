@@ -10,6 +10,7 @@ export function useMessages({
   status: UseChatHelpers['status'];
 }) {
   const {
+    
     containerRef,
     endRef,
     isAtBottom,

@@ -9,7 +9,7 @@ export async function GET(request: Request) {
 
   const token = await getToken({
     req: request,
-    secret: process.env.AUTH_SECRET,
+    secret: process.env.NEXTAUTH_SECRET, // ✅ FIXED
     secureCookie: !isDevelopmentEnvironment,
   });
 
@@ -17,5 +17,5 @@ export async function GET(request: Request) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  return signIn('guest', { redirect: true, redirectTo: redirectUrl });
+  return signIn('auth0', { redirect: true, redirectTo: redirectUrl }); // ✅ FIXED
 }
